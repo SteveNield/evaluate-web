@@ -1,2 +1,2 @@
-# evaluate-web
+# Evaluate Web
 Front-end for Evaluate application
