@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     },
     webpack: {
       src: {
-        entry: "./src/app.js",
+        entry: "./src/main.js",
         output: {
             path: "./src/",
             filename: "bundle.js",
@@ -70,14 +70,22 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+    uglify: {
+        my_target: {
+          files: {
+            './src/app.js': ['./src/bundle.js']
+          }
+        }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-karma'); 
 
-  grunt.registerTask('default', ['webpack', 'karma']);
+  grunt.registerTask('default', ['webpack', 'karma', 'uglify']);
   grunt.registerTask('test', ['karma']);
 
 };
