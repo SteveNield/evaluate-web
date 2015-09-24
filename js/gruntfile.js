@@ -2,8 +2,13 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     watch: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-      tasks: ['webpack', 'karma']
+      files: [
+          'Gruntfile.js', 
+          'src/components/*.js', 
+          'src/config/*.js',
+          'src/main.js',
+          'test/**/*spec.js'],
+      tasks: ['webpack', 'karma', 'uglify']
     },
     webpack: {
       src: {
@@ -33,7 +38,10 @@ module.exports = function(grunt) {
         keepalive: false
       },
       test: {
-        entry: "./test/login-form-spec.js",
+        entry: [
+            "./test/login-form-spec.js",
+            "./test/dashboard-spec.js"
+        ],
         output: {
             path: "./test",
             filename: "spec.js",

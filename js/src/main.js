@@ -1,10 +1,8 @@
 'use strict';
 
-import React from 'react';
-import LoginForm from '../src/components/login-form.js';
+import RoutieConfig from '../src/config/routie-config.js';
+import Routie from '../src/lib/routie';
 
-React.render(
-	<LoginForm />, 
-    
-	document.getElementById('application-container')
-);
+RoutieConfig.configure();
+
+routie('login');
