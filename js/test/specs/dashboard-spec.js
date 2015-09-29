@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react/addons';
-import LoginForm from '../src/components/dashboard.js';
+import LoginForm from '../../src/components/dashboard.js';
 
 var TestUtils = React.addons.TestUtils;
 

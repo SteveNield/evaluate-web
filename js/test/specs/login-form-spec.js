@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react/addons';
-import LoginForm from '../src/components/login-form.js';
+import LoginForm from '../../src/components/login-form.js';
 
 var TestUtils = React.addons.TestUtils;
 

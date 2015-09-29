@@ -7,8 +7,7 @@ import Dashboard from '../components/dashboard.js';
 
 export default {
     
-  configure: () => {
-      
+  configure: () => {   
     routie({
         'login': () => {
             React.render(<LoginForm />, document.getElementById('application-container'));
@@ -17,7 +16,5 @@ export default {
             React.render(<Dashboard />, document.getElementById('application-container'));
         }
     });
-      
   }
-    
 };

@@ -4,11 +4,12 @@ module.exports = function(grunt) {
     watch: {
       files: [
           'Gruntfile.js', 
-          'src/components/*.js', 
+          'src/components/*.js',
           'src/config/*.js',
           'src/main.js',
-          'test/**/*spec.js'],
-      tasks: ['webpack', 'karma', 'uglify']
+          '../css/**/*.scss',
+          'test/specs/**/*.js'],
+      tasks: ['webpack', 'karma', 'uglify', 'sass', 'cssmin']
     },
     webpack: {
       src: {
@@ -39,8 +40,8 @@ module.exports = function(grunt) {
       },
       test: {
         entry: [
-            "./test/login-form-spec.js",
-            "./test/dashboard-spec.js"
+            "./test/specs/login-form-spec.js",
+            "./test/specs/dashboard-spec.js"
         ],
         output: {
             path: "./test",
@@ -82,18 +83,41 @@ module.exports = function(grunt) {
     uglify: {
         my_target: {
           files: {
-            './src/app.js': ['./src/bundle.js']
+            './src/output/evaluate.js': ['./src/bundle.js']
           }
         }
+    },
+    sass: {
+        dist: {
+          options: {
+            style: 'expanded'
+          },
+          files: {
+            '../css/main.css': '../css/main.scss'
+          }
+        }
+    },
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          '../css/output/evaluate.min.css': ['../css/**/*.css', '!../css/**/*.min.css']
+        }
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-karma'); 
 
-  grunt.registerTask('default', ['webpack', 'karma', 'uglify']);
+  grunt.registerTask('default', ['webpack', 'karma', 'uglify', 'sass', 'cssmin']);
   grunt.registerTask('test', ['karma']);
 
 };

@@ -22589,51 +22589,13 @@
 	    render: function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { id: 'content', className: 'snap-content' },
+	            { className: 'login-wrapper' },
 	            _react2['default'].createElement(
-	                'div',
-	                { className: 'coverpage coverpage-bg1' },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'loginbox-wrapper' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'loginbox' },
-	                        _react2['default'].createElement(
-	                            'h2',
-	                            { className: 'center-text' },
-	                            'Welcome'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'h4',
-	                            { className: 'center-text' },
-	                            'Enter your credentials bellow'
-	                        ),
-	                        _react2['default'].createElement('input', { className: 'loginbox-username', type: 'text', value: 'Username' }),
-	                        _react2['default'].createElement('input', { className: 'loginbox-password', type: 'password', value: 'password' }),
-	                        _react2['default'].createElement(
-	                            'a',
-	                            { href: '#', className: 'button button-green' },
-	                            'Login'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'em',
-	                            null,
-	                            'Don have an account? ',
-	                            _react2['default'].createElement(
-	                                'a',
-	                                { href: '#' },
-	                                'Register for free'
-	                            )
-	                        ),
-	                        _react2['default'].createElement(
-	                            'a',
-	                            { href: '#', className: 'close-loginbox' },
-	                            'Close'
-	                        )
-	                    )
-	                )
-	            )
+	                'h1',
+	                { id: 'header' },
+	                'Login'
+	            ),
+	            _react2['default'].createElement('div', { className: 'login-form' })
 	        );
 	    }
 	});
