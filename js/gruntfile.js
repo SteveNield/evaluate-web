@@ -41,7 +41,8 @@ module.exports = function(grunt) {
       test: {
         entry: [
             "./test/specs/login-form-spec.js",
-            "./test/specs/dashboard-spec.js"
+            "./test/specs/dashboard-spec.js",
+            "./test/specs/header-spec.js"
         ],
         output: {
             path: "./test",
@@ -93,7 +94,8 @@ module.exports = function(grunt) {
             style: 'expanded'
           },
           files: {
-            '../css/main.css': '../css/main.scss'
+            '../css/main.css': '../css/main.scss',
+            '../css/component-base.css': '../css/component-base.scss'
           }
         }
     },

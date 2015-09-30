@@ -11,8 +11,12 @@ describe('LoginForm', () => {
 	beforeEach(() => {
 		component = TestUtils.renderIntoDocument(<LoginForm />);
 	});
-
-	it('should display a header with "Login"', () => {
-		expect(component.getDOMNode('header').textContent).toMatch('Login');
+        
+    it('should display a header with correct message', () => {
+		expect(component.getDOMNode('panel-header').textContent).toMatch('Welcome');
 	});
+        
+    it('should display a sub-header with correct message"', () => {
+       expect(component.getDOMNode('panel-sub-header').textContent).toMatch('Enter your credentials below'); 
+    });
 });

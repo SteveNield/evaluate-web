@@ -45,7 +45,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(177);
+	__webpack_require__(178);
+	module.exports = __webpack_require__(180);
 
 
 /***/ },
@@ -67,15 +68,19 @@
 	var TestUtils = _reactAddons2['default'].addons.TestUtils;
 
 	describe('LoginForm', function () {
-		var component;
+	  var component;
 
-		beforeEach(function () {
-			component = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_srcComponentsLoginFormJs2['default'], null));
-		});
+	  beforeEach(function () {
+	    component = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_srcComponentsLoginFormJs2['default'], null));
+	  });
 
-		it('should display a header with "Login"', function () {
-			expect(component.getDOMNode('header').textContent).toMatch('Login');
-		});
+	  it('should display a header with correct message', function () {
+	    expect(component.getDOMNode('panel-header').textContent).toMatch('Welcome');
+	  });
+
+	  it('should display a sub-header with correct message"', function () {
+	    expect(component.getDOMNode('panel-sub-header').textContent).toMatch('Enter your credentials below');
+	  });
 	});
 
 /***/ },
@@ -22584,18 +22589,38 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _componentsHeaderJs = __webpack_require__(177);
+
+	var _componentsHeaderJs2 = _interopRequireDefault(_componentsHeaderJs);
+
 	exports['default'] = _react2['default'].createClass({
 	    displayName: 'LoginForm',
 	    render: function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: 'login-wrapper' },
+	            _react2['default'].createElement(_componentsHeaderJs2['default'], { message: 'Login' }),
 	            _react2['default'].createElement(
-	                'h1',
-	                { id: 'header' },
-	                'Login'
-	            ),
-	            _react2['default'].createElement('div', { className: 'login-form' })
+	                'div',
+	                { className: 'small-panel' },
+	                _react2['default'].createElement(
+	                    'h2',
+	                    { className: 'center-text' },
+	                    'Welcome'
+	                ),
+	                _react2['default'].createElement(
+	                    'h4',
+	                    { className: 'center-text' },
+	                    'Enter your credentials below'
+	                ),
+	                _react2['default'].createElement('input', { type: 'text', placeholder: 'Username' }),
+	                _react2['default'].createElement('input', { type: 'password', placeholder: 'Password' }),
+	                _react2['default'].createElement(
+	                    'a',
+	                    { href: '#', className: 'button button-green' },
+	                    'Login'
+	                )
+	            )
 	        );
 	    }
 	});
@@ -22614,13 +22639,45 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(176);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	exports['default'] = _react2['default'].createClass({
+	  displayName: 'Header',
+	  render: function render() {
+	    return _react2['default'].createElement(
+	      'div',
+	      { className: 'header' },
+	      _react2['default'].createElement(
+	        'a',
+	        { href: '#', id: 'header-message' },
+	        this.props.message
+	      )
+	    );
+	  }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _reactAddons = __webpack_require__(2);
 
 	var _reactAddons2 = _interopRequireDefault(_reactAddons);
 
-	var _srcComponentsDashboardJs = __webpack_require__(178);
+	var _srcComponentsDashboardJs = __webpack_require__(179);
 
 	var _srcComponentsDashboardJs2 = _interopRequireDefault(_srcComponentsDashboardJs);
 
@@ -22639,7 +22696,7 @@
 	});
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22665,6 +22722,36 @@
 		}
 	});
 	module.exports = exports['default'];
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _reactAddons = __webpack_require__(2);
+
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+
+	var _srcComponentsHeaderJs = __webpack_require__(177);
+
+	var _srcComponentsHeaderJs2 = _interopRequireDefault(_srcComponentsHeaderJs);
+
+	var TestUtils = _reactAddons2['default'].addons.TestUtils;
+
+	describe('Header', function () {
+		var component;
+
+		beforeEach(function () {
+			component = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_srcComponentsHeaderJs2['default'], { message: 'Test Message' }));
+		});
+
+		it('should display a message passed as a prop', function () {
+			expect(component.getDOMNode('header-message').textContent).toMatch('Test Message');
+		});
+	});
 
 /***/ }
 /******/ ]);

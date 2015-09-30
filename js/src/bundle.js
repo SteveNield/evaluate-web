@@ -84,7 +84,7 @@
 
 	var _componentsLoginFormJs2 = _interopRequireDefault(_componentsLoginFormJs);
 
-	var _componentsDashboardJs = __webpack_require__(160);
+	var _componentsDashboardJs = __webpack_require__(161);
 
 	var _componentsDashboardJs2 = _interopRequireDefault(_componentsDashboardJs);
 
@@ -20698,18 +20698,38 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _componentsHeaderJs = __webpack_require__(160);
+
+	var _componentsHeaderJs2 = _interopRequireDefault(_componentsHeaderJs);
+
 	exports['default'] = _react2['default'].createClass({
 	    displayName: 'LoginForm',
 	    render: function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: 'login-wrapper' },
+	            _react2['default'].createElement(_componentsHeaderJs2['default'], { message: 'Login' }),
 	            _react2['default'].createElement(
-	                'h1',
-	                { id: 'header' },
-	                'Login'
-	            ),
-	            _react2['default'].createElement('div', { className: 'login-form' })
+	                'div',
+	                { className: 'small-panel' },
+	                _react2['default'].createElement(
+	                    'h2',
+	                    { className: 'center-text' },
+	                    'Welcome'
+	                ),
+	                _react2['default'].createElement(
+	                    'h4',
+	                    { className: 'center-text' },
+	                    'Enter your credentials below'
+	                ),
+	                _react2['default'].createElement('input', { type: 'text', placeholder: 'Username' }),
+	                _react2['default'].createElement('input', { type: 'password', placeholder: 'Password' }),
+	                _react2['default'].createElement(
+	                    'a',
+	                    { href: '#', className: 'button button-green' },
+	                    'Login'
+	                )
+	            )
 	        );
 	    }
 	});
@@ -20717,6 +20737,38 @@
 
 /***/ },
 /* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	exports['default'] = _react2['default'].createClass({
+	  displayName: 'Header',
+	  render: function render() {
+	    return _react2['default'].createElement(
+	      'div',
+	      { className: 'header' },
+	      _react2['default'].createElement(
+	        'a',
+	        { href: '#', id: 'header-message' },
+	        this.props.message
+	      )
+	    );
+	  }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
