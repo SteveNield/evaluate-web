@@ -83,7 +83,7 @@ module.exports = function(grunt) {
     uglify: {
         my_target: {
           files: {
-            './src/output/evaluate.js': ['./src/bundle.js']
+            './src/build/evaluate.js': ['./src/bundle.js']
           }
         }
     },
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          '../css/output/evaluate.min.css': ['../css/**/*.css', '!../css/**/*.min.css']
+          '../css/build/evaluate.min.css': ['../css/**/*.css', '!../css/**/*.min.css']
         }
       }
     }
