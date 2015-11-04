@@ -42,7 +42,11 @@ module.exports = function(grunt) {
         entry: [
             "./test/specs/login-form-spec.js",
             "./test/specs/dashboard-spec.js",
-            "./test/specs/header-spec.js"
+            "./test/specs/header-spec.js",
+            "./test/specs/token-repo-spec.js",
+            "./test/specs/route-handler-spec.js",
+            "./test/specs/data-service-spec.js",
+            "./test/specs/service-error-handler-spec.js"
         ],
         output: {
             path: "./test",
@@ -108,6 +112,16 @@ module.exports = function(grunt) {
         files: {
           '../css/build/evaluate.min.css': ['../css/**/*.css', '!../css/**/*.min.css']
         }
+      },
+    },
+    copy: {
+      local: {
+        src: 'src/config/config-transforms/environment.local.config.js',
+        dest: 'src/config/environment.config.js'
+      },
+      integration: {
+        src: 'src/config/config-transforms/environment.integration.config.js',
+        dest: 'src/config/environment.config.js'
       }
     }
   });
@@ -116,10 +130,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-karma'); 
 
-  grunt.registerTask('default', ['webpack', 'karma', 'uglify', 'sass', 'cssmin']);
+  grunt.registerTask('default', ['copy:local', 'webpack', 'karma', 'uglify', 'sass', 'cssmin']);
+  grunt.registerTask('integration', ['copy:integration', 'webpack', 'karma', 'uglify', 'sass', 'cssmin']);
   grunt.registerTask('test', ['karma']);
 
 };

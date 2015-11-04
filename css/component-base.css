@@ -51,8 +51,14 @@
 }
 
 .small-panel .button-green {
-  background-color: #27ae60;
+  background-color: #27AE60;
   color: #FFFFFF;
+}
+
+.small-panel .button-disabled {
+  background-color: #CCC;
+  color: #FFF;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=component-base.css.map */

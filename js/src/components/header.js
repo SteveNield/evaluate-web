@@ -3,7 +3,9 @@
 import React from 'react';
 
 export default React.createClass({
+    
 	displayName: 'Header',
+    
 	render(){
 		return (
             <div className="header">
@@ -11,4 +13,5 @@ export default React.createClass({
             </div>
         );
 	}
+    
 });

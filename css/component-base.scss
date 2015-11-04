@@ -1,4 +1,6 @@
-$button-green-color: #27ae60;
+$button-green-color: #27AE60;
+$button-grey-color: #CCC;
+$input-text-color: rgba(0,0,0,0.5);
 
 .small-panel {
     position: fixed;
@@ -37,7 +39,7 @@ $button-green-color: #27ae60;
     height: 40px;
     width: 85%;
     border: solid 2px rgba(0,0,0,0.1);
-    color: rgba(0,0,0,0.5);
+    color: $input-text-color;
     padding-left: 20px;
     transition: all 400ms ease;
     margin-left: auto;
@@ -55,4 +57,10 @@ $button-green-color: #27ae60;
 .small-panel .button-green {
     background-color: $button-green-color;
     color: #FFFFFF;
+}
+
+.small-panel .button-disabled {
+    background-color: $button-grey-color;
+    color:#FFF;
+    pointer-events: none;
 }
